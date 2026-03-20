@@ -5,7 +5,7 @@ import { updateClientAction } from "../../actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useFormState } from "react-dom";
+import { useActionState } from "react";
 import { useRouter } from "next/navigation";
 
 type ClientType = {
@@ -21,8 +21,11 @@ const initialState = { status: "", message: "" };
 
 export default function EditClientClient({ client }: { client: ClientType }) {
   const formRef = useRef<HTMLFormElement | null>(null);
-  const [state, action] = useFormState(
-    async (formData: FormData) => await updateClientAction(client.id, formData),
+  const [state, action] = useActionState(
+    async (formData: FormData) => {
+      const result = await updateClientAction(client.id, formData);
+      return result || initialState;
+    },
     initialState
   );
   const [pending, setPending] = useState(false);
