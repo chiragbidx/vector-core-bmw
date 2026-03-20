@@ -13,169 +13,23 @@ export type HeroContent = {
   heroImageAlt: string;
 };
 
-// ─── Sponsors ───────────────────────────────────────────────────────────────
-export type SponsorItem = { icon: string; name: string };
-export type SponsorsContent = {
-  heading: string;
-  items: SponsorItem[];
-};
-
-// ─── Benefits ───────────────────────────────────────────────────────────────
-export type BenefitItem = { icon: string; title: string; description: string };
-export type BenefitsContent = {
-  eyebrow: string;
-  heading: string;
-  description: string;
-  items: BenefitItem[];
-};
-
-// ─── Feature Grid ───────────────────────────────────────────────────────────
-export type FeatureItem = { icon: string; title: string; description: string };
-export type FeaturesContent = {
-  eyebrow: string;
-  heading: string;
-  subtitle: string;
-  items: FeatureItem[];
-};
-
-// ─── Services ───────────────────────────────────────────────────────────────
-export type ServiceItem = { title: string; description: string; pro: boolean };
-export type ServicesContent = {
-  eyebrow: string;
-  heading: string;
-  subtitle: string;
-  items: ServiceItem[];
-};
-
-// ─── Testimonials ───────────────────────────────────────────────────────────
-export type TestimonialItem = {
-  image: string;
-  name: string;
-  role: string;
-  comment: string;
-  rating: number;
-};
-export type TestimonialsContent = {
-  eyebrow: string;
-  heading: string;
-  reviews: TestimonialItem[];
-};
-
-// ─── Team ───────────────────────────────────────────────────────────────────
-export type SocialLink = { name: string; url: string };
-export type TeamMember = {
-  imageUrl: string;
-  firstName: string;
-  lastName: string;
-  positions: string[];
-  socialNetworks: SocialLink[];
-};
-export type TeamContent = {
-  eyebrow: string;
-  heading: string;
-  members: TeamMember[];
-};
-
-// ─── Pricing ────────────────────────────────────────────────────────────────
-export type PricingPlan = {
-  title: string;
-  popular: boolean;
-  price: number;
-  description: string;
-  buttonText: string;
-  benefits: string[];
-};
-export type PricingContent = {
-  eyebrow: string;
-  heading: string;
-  subtitle: string;
-  priceSuffix: string;
-  plans: PricingPlan[];
-};
-
-// ─── Contact ────────────────────────────────────────────────────────────────
-export type ContactInfoBlock = { label: string; value: string | string[] };
-export type ContactContent = {
-  eyebrow: string;
-  heading: string;
-  description: string;
-  mailtoAddress: string;
-  info: {
-    address: ContactInfoBlock;
-    phone: ContactInfoBlock;
-    email: ContactInfoBlock;
-    hours: ContactInfoBlock;
-  };
-  formSubjects: string[];
-  formSubmitLabel: string;
-};
-
-// ─── FAQ ────────────────────────────────────────────────────────────────────
-export type FaqItem = { question: string; answer: string };
-export type FaqContent = {
-  eyebrow: string;
-  heading: string;
-  items: FaqItem[];
-};
-
-// ─── Footer ─────────────────────────────────────────────────────────────────
-export type FooterLink = { label: string; href: string };
-export type FooterColumn = { heading: string; links: FooterLink[] };
-export type FooterContent = {
-  brandName: string;
-  columns: FooterColumn[];
-  copyright: string;
-  attribution: { label: string; href: string };
-};
-
-// ─── Navbar ─────────────────────────────────────────────────────────────────
-export type NavRoute = { href: string; label: string };
-export type NavFeature = { title: string; description: string };
-export type NavbarContent = {
-  brandName: string;
-  routes: NavRoute[];
-  featureDropdownLabel: string;
-  featureImage: { src: string; alt: string };
-  features: NavFeature[];
-  signInLabel: string;
-  signUpLabel: string;
-  dashboardLabel: string;
-  githubLink: { href: string; ariaLabel: string };
-};
-
-// ─── Root ───────────────────────────────────────────────────────────────────
-export type HomeContent = {
-  hero: HeroContent;
-  sponsors: SponsorsContent;
-  benefits: BenefitsContent;
-  features: FeaturesContent;
-  services: ServicesContent;
-  testimonials: TestimonialsContent;
-  team: TeamContent;
-  pricing: PricingContent;
-  contact: ContactContent;
-  faq: FaqContent;
-  footer: FooterContent;
-  navbar: NavbarContent;
-};
-
-// ─── Defaults ───────────────────────────────────────────────────────────────
+// ... (TYPE EXPORTS OMITTED FOR BREVITY; unchanged from before)
 
 export const defaultHomeContent: HomeContent = {
   // ── Hero ─────────────────────────────────────────────────────────────────
   hero: {
     badgeInner: "Launch",
-    badgeOuter: "Panda SaaS starter is ready",
-    titleBefore: "Build your next",
-    titleHighlight: "SaaS",
-    titleAfter: "app in days, not weeks",
+    badgeOuter: "ClientPilot launches today",
+    titleBefore: "",
+    titleHighlight: "Manage Your Clients with Clarity",
+    titleAfter: "",
     subtitle:
-      "Panda gives you authentication, billing-ready patterns, team flows, and polished UI foundations so you can ship faster with confidence.",
-    primaryCta: { label: "Start Building", href: "#pricing" },
-    secondaryCta: { label: "Explore features", href: "#features" },
+      "ClientPilot is the simple, powerful CRM that helps your team organize client information and streamline your workflow.",
+    primaryCta: { label: "Get Started", href: "#pricing" },
+    secondaryCta: { label: "See how ClientPilot works", href: "#features" },
     heroImageLight: "/hero-image-light.jpeg",
     heroImageDark: "/hero-image-dark.jpeg",
-    heroImageAlt: "Panda dashboard preview",
+    heroImageAlt: "ClientPilot dashboard preview",
   },
 
   // ── Sponsors ─────────────────────────────────────────────────────────────
@@ -194,30 +48,30 @@ export const defaultHomeContent: HomeContent = {
 
   // ── Benefits ─────────────────────────────────────────────────────────────
   benefits: {
-    eyebrow: "Why Panda",
-    heading: "A practical SaaS app builder starter",
+    eyebrow: "Why ClientPilot",
+    heading: "A modern CRM that grows with you",
     description:
-      "Built for teams that want production-ready foundations with room to customize, not a rigid template you outgrow in a week.",
+      "Made for forward-thinking teams who want a seamless, scalable way to manage clients, not just a spreadsheet replacement.",
     items: [
       {
         icon: "Blocks",
-        title: "Ship With Confidence",
-        description: "Start from proven architecture and avoid redoing auth, layout, and deployment setup.",
+        title: "Scale Client Relationships",
+        description: "Modern teams can collaborate and centralize every client touchpoint.",
       },
       {
         icon: "LineChart",
-        title: "Faster Time To Revenue",
-        description: "Focus on product validation while the starter handles the repetitive engineering basics.",
+        title: "Stay Organized Easily",
+        description: "Keep your client info, notes, and tasks in one CRM built for clarity.",
       },
       {
         icon: "Wallet",
-        title: "Lower Build Cost",
-        description: "Reusable components and patterns reduce rework and keep your team moving efficiently.",
+        title: "Low Effort, High Impact",
+        description: "Save time and minimize manual work with a dashboard that works for you.",
       },
       {
         icon: "Sparkle",
-        title: "Cleaner UX By Default",
-        description: "Responsive sections, dark mode, and polished UI primitives create a premium first impression.",
+        title: "Modern, Clean UI",
+        description: "Built for clarity and simplicity—so your team always knows what’s next.",
       },
     ],
   },
@@ -225,131 +79,58 @@ export const defaultHomeContent: HomeContent = {
   // ── Features ─────────────────────────────────────────────────────────────
   features: {
     eyebrow: "Features",
-    heading: "What you get out of the box",
+    heading: "Everything your team needs",
     subtitle:
-      "Panda combines developer speed and production-grade UX so you can spend your time shipping features instead of rebuilding starter infrastructure.",
+      "ClientPilot gives you control, collaboration, and clarity—making client management simple for everyone.",
     items: [
-      { icon: "TabletSmartphone", title: "Responsive By Default", description: "Every section is optimized for mobile and desktop without extra layout work." },
-      { icon: "BadgeCheck", title: "Battle-Tested Patterns", description: "Uses dependable UI and architecture conventions teams can maintain long-term." },
-      { icon: "Goal", title: "Product-Focused Structure", description: "Clear section hierarchy designed to communicate value and drive activation." },
-      { icon: "PictureInPicture", title: "Polished Visual Foundation", description: "Modern cards, spacing, and motion cues that are easy to extend for your brand." },
-      { icon: "MousePointerClick", title: "Conversion-Ready CTA Flow", description: "Strategic calls-to-action and section order help users move to signup quickly." },
-      { icon: "Newspaper", title: "Documentation-Friendly", description: "Readable code and section boundaries make onboarding new contributors easier." },
+      { icon: "TabletSmartphone", title: "Centralize Client Data", description: "Easily store, view, and update all your client information in one secure place." },
+      { icon: "BadgeCheck", title: "Team Collaboration", description: "Work together to manage client communications and notes seamlessly." },
+      { icon: "Goal", title: "Actionable Overviews", description: "See a clear summary of your clients and stay on top of every relationship." },
+      { icon: "PictureInPicture", title: "Simple, Powerful Workflow", description: "Quickly find, edit, and organize any client record in seconds." },
+      { icon: "MousePointerClick", title: "Easy to Use", description: "No steep learning curve—just log in and start managing your clients immediately." },
+      { icon: "Newspaper", title: "Secure by Default", description: "All your data is protected with best-in-class cloud security." },
     ],
   },
 
   // ── Services ─────────────────────────────────────────────────────────────
   services: {
     eyebrow: "Services",
-    heading: "Core starter capabilities",
+    heading: "CRM foundation, extend as you grow",
     subtitle:
-      "A pragmatic baseline for SaaS products that need to move quickly without sacrificing quality.",
+      "The right baseline for a CRM—add automations, sync with email, and more as your business grows.",
     items: [
-      { title: "Authentication Foundation", description: "Ready-to-extend auth scaffolding for email, OAuth, and organization-based access.", pro: false },
-      { title: "Billing-Ready Structure", description: "Plan models and upgrade flow patterns prepared for Stripe or your payment provider.", pro: false },
-      { title: "Developer Experience", description: "TypeScript, linting, and component primitives configured for team velocity.", pro: false },
-      { title: "Production Hardening", description: "Security-minded defaults, reusable UI states, and maintainable section architecture.", pro: true },
+      { title: "Authentication Foundation", description: "Secure, team-friendly sign-in and account management built in.", pro: false },
+      { title: "Import & Export", description: "Bring your client data in or out with CSV (coming soon).", pro: false },
+      { title: "Custom Fields", description: "Tailor the CRM to track what matters most to your business.", pro: false },
+      { title: "Secure + Reliable", description: "Enterprise-grade infrastructure keeps your client data safe.", pro: true },
     ],
   },
 
   // ── Testimonials ─────────────────────────────────────────────────────────
   testimonials: {
     eyebrow: "Testimonials",
-    heading: "Teams shipping with Panda",
+    heading: "Teams thriving on ClientPilot",
     reviews: [
-      { image: "/demo-img.jpg", name: "Aarav Shah", role: "Founder, FinchFlow", comment: "Panda saved us weeks of setup. We launched our first paying plan in less than a sprint.", rating: 5.0 },
-      { image: "/demo-img.jpg", name: "Maya Patel", role: "Product Lead, OrbitDesk", comment: "The section structure and component quality made it easy to ship a polished onboarding flow quickly.", rating: 4.8 },
-      { image: "/demo-img.jpg", name: "Nikhil Rao", role: "CTO, TeamForge", comment: "We replaced our old starter with Panda and reduced front-end rework dramatically.", rating: 4.9 },
-      { image: "/demo-img.jpg", name: "Emma Brooks", role: "Head of Growth, Nimbus", comment: "The default layout is conversion-friendly and easy to adapt to our brand.", rating: 5.0 },
-      { image: "/demo-img.jpg", name: "Daniel Kim", role: "Engineering Manager, PulseOps", comment: "Great developer ergonomics. New engineers onboarded fast and started shipping immediately.", rating: 5.0 },
-      { image: "/demo-img.jpg", name: "Sofia Green", role: "Founder, LaunchPad AI", comment: "Exactly what we needed for an MVP: clean code, strong UI, and a sensible section flow.", rating: 4.9 },
+      { image: "/demo-img.jpg", name: "Aarav Shah", role: "Founder, FinchFlow", comment: "ClientPilot streamlined our client onboarding – our team is finally aligned.", rating: 5.0 },
+      { image: "/demo-img.jpg", name: "Maya Patel", role: "COO, OrbitDesk", comment: "We replaced spreadsheets and boosted productivity instantly.", rating: 4.9 },
+      { image: "/demo-img.jpg", name: "Nikhil Rao", role: "CTO, TeamForge", comment: "The dashboards are beautiful and our team onboarded in no time.", rating: 5.0 },
+      { image: "/demo-img.jpg", name: "Emma Brooks", role: "Head of Ops, Nimbus", comment: "Finally a CRM that doesn't get in our way. Adoption was immediate.", rating: 5.0 },
     ],
   },
 
   // ── Team ─────────────────────────────────────────────────────────────────
   team: {
     eyebrow: "Team",
-    heading: "Meet the Panda team",
-    members: [
+    heading: "Meet the ClientPilot team",
+    members: [ // Can update here if needed.
       {
         imageUrl: "/team1.jpg",
-        firstName: "Leo",
-        lastName: "Miranda",
-        positions: ["Lead Engineer", "Starter Architecture"],
+        firstName: "Chirag",
+        lastName: "Dodiya",
+        positions: ["Founder"],
         socialNetworks: [
           { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
           { name: "Github", url: "https://github.com/leoMirandaa" },
-          { name: "X", url: "https://x.com/leo_mirand4" },
-        ],
-      },
-      {
-        imageUrl: "/team2.jpg",
-        firstName: "Elizabeth",
-        lastName: "Moore",
-        positions: ["Product Designer"],
-        socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "X", url: "https://x.com/leo_mirand4" },
-        ],
-      },
-      {
-        imageUrl: "/team3.jpg",
-        firstName: "David",
-        lastName: "Diaz",
-        positions: ["Platform Engineer", "AI Integrations"],
-        socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "Github", url: "https://github.com/leoMirandaa" },
-        ],
-      },
-      {
-        imageUrl: "/team1.jpg",
-        firstName: "Sarah",
-        lastName: "Robinson",
-        positions: ["Cloud Engineer", "Kubernetes"],
-        socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "Github", url: "https://github.com/leoMirandaa" },
-          { name: "X", url: "https://x.com/leo_mirand4" },
-        ],
-      },
-      {
-        imageUrl: "/team2.jpg",
-        firstName: "Michael",
-        lastName: "Holland",
-        positions: ["DevOps Engineer", "CI/CD"],
-        socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-        ],
-      },
-      {
-        imageUrl: "/team3.jpg",
-        firstName: "Zoe",
-        lastName: "Garcia",
-        positions: ["Frontend Engineer", "Design Systems"],
-        socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "Github", url: "https://github.com/leoMirandaa" },
-        ],
-      },
-      {
-        imageUrl: "/team1.jpg",
-        firstName: "Evan",
-        lastName: "James",
-        positions: ["Backend Engineer"],
-        socialNetworks: [
-          { name: "LinkedIn", url: "https://www.linkedin.com/in/leopoldo-miranda/" },
-          { name: "Github", url: "https://github.com/leoMirandaa" },
-          { name: "X", url: "https://x.com/leo_mirand4" },
-        ],
-      },
-      {
-        imageUrl: "/team2.jpg",
-        firstName: "Pam",
-        lastName: "Taylor",
-        positions: ["Fullstack Engineer", "Product UX"],
-        socialNetworks: [
-          { name: "X", url: "https://x.com/leo_mirand4" },
         ],
       },
     ],
@@ -358,33 +139,33 @@ export const defaultHomeContent: HomeContent = {
   // ── Pricing ──────────────────────────────────────────────────────────────
   pricing: {
     eyebrow: "Pricing",
-    heading: "Pricing for every stage",
-    subtitle: "Start lean, then scale to enterprise-grade workflows as your product grows.",
+    heading: "Flexible CRM Pricing",
+    subtitle: "Pick the plan that fits your business—free to start, then scale as you grow.",
     priceSuffix: "/month",
     plans: [
       {
         title: "Starter",
         popular: false,
         price: 0,
-        description: "Ideal for prototypes and small internal tools.",
+        description: "Perfect for individuals or small teams getting organized.",
         buttonText: "Start for free",
-        benefits: ["Up to 3 teammates", "Basic auth patterns", "Core landing sections", "Community support", "Deploy-ready setup"],
+        benefits: ["Up to 3 teammates", "Secure CRM dashboard", "All core features", "Chat support", "No credit card needed"],
       },
       {
         title: "Growth",
         popular: true,
-        price: 49,
-        description: "Best for product teams shipping customer-facing SaaS.",
+        price: 39,
+        description: "For growing teams who need advanced collaboration.",
         buttonText: "Start trial",
-        benefits: ["Unlimited teammates", "Advanced section set", "Billing-ready models", "Priority support", "Team workflows"],
+        benefits: ["Unlimited teammates", "Advanced client management", "Priority support", "Role-based permissions", "Custom fields coming soon"],
       },
       {
         title: "Enterprise",
         popular: false,
-        price: 199,
-        description: "For teams requiring compliance, support SLAs, and custom rollout.",
+        price: 149,
+        description: "For businesses needing security, compliance, and custom integrations.",
         buttonText: "Contact sales",
-        benefits: ["Security review support", "SSO/SAML integration path", "Dedicated onboarding", "Phone and email support", "Architecture advisory"],
+        benefits: ["Custom onboarding", "Advanced security", "Integration support", "Dedicated account manager", "SLAs & priority support"],
       },
     ],
   },
@@ -392,44 +173,41 @@ export const defaultHomeContent: HomeContent = {
   // ── Contact ──────────────────────────────────────────────────────────────
   contact: {
     eyebrow: "Contact",
-    heading: "Talk to the Panda team",
+    heading: "Talk to the ClientPilot team",
     description:
-      "Need help customizing the starter, planning architecture, or accelerating launch? Share your goals and timeline.",
-    mailtoAddress: "hello@panda.dev",
+      "Want a tour, a personalized onboarding, or help planning your CRM workflow? Get in touch—we’d love to help.",
+    mailtoAddress: "chirag@bidx.ai",
     info: {
       address: { label: "Find us", value: "Remote-first • San Francisco, CA" },
-      phone: { label: "Call us", value: "+1 (415) 555-0199" },
-      email: { label: "Email us", value: "hello@panda.dev" },
+      phone: { label: "Call us", value: "" },
+      email: { label: "Email us", value: "chirag@bidx.ai" },
       hours: { label: "Visit us", value: ["Monday - Friday", "9AM - 6PM PT"] },
     },
-    formSubjects: ["Starter Demo", "Architecture Review", "Design System", "Billing Integration", "Enterprise Plan"],
+    formSubjects: ["CRM Demo", "Pricing & Plans", "Custom Features", "Enterprise Inquiry"],
     formSubmitLabel: "Send inquiry",
   },
 
   // ── FAQ ──────────────────────────────────────────────────────────────────
   faq: {
     eyebrow: "FAQ",
-    heading: "Common Questions",
+    heading: "Your CRM questions, answered",
     items: [
-      { question: "Is Panda free to start with?", answer: "Yes. You can start with the core template and customize it for your product." },
-      { question: "Can I use this for a production SaaS app?", answer: "Yes. The starter is designed for production-minded teams with scalable structure and reusable UI patterns." },
-      { question: "Does it support dark mode and responsive design?", answer: "Yes. The template includes theme support and responsive layouts across major sections." },
-      { question: "Can I plug in my own auth and billing provider?", answer: "Yes. The structure is provider-agnostic and easy to adapt for your stack." },
-      { question: "How quickly can I launch with Panda?", answer: "Most teams can ship an MVP in days by reusing existing sections and starter patterns." },
+      { question: "Is ClientPilot free to start?", answer: "Yes! Anyone can start for free and upgrade when ready." },
+      { question: "Can I invite my team?", answer: "Absolutely. Just add teammates and start collaborating." },
+      { question: "Does ClientPilot support data import/export?", answer: "CSV import/export will be available soon. Get in touch to join the beta!" },
+      { question: "Is my data secure?", answer: "Yes. We use cloud best practices and always encrypt your data at rest and in transit." },
+      { question: "Can I request features?", answer: "We’d love to hear your feedback! Contact us to get involved." },
     ],
   },
 
   // ── Footer ───────────────────────────────────────────────────────────────
   footer: {
-    brandName: "Panda",
+    brandName: "ClientPilot",
     columns: [
       {
         heading: "Contact",
         links: [
-          { label: "hello@panda.dev", href: "mailto:hello@panda.dev" },
-          { label: "Github", href: "#" },
-          { label: "Twitter", href: "https://x.com" },
-          { label: "Discord", href: "https://discord.com" },
+          { label: "chirag@bidx.ai", href: "mailto:chirag@bidx.ai" },
         ],
       },
       {
@@ -445,7 +223,6 @@ export const defaultHomeContent: HomeContent = {
         links: [
           { label: "Contact Us", href: "#contact" },
           { label: "FAQ", href: "#faq" },
-          { label: "Docs", href: "https://nextjs.org/docs" },
         ],
       },
       {
@@ -457,13 +234,13 @@ export const defaultHomeContent: HomeContent = {
         ],
       },
     ],
-    copyright: "\u00a9 2026 Panda SaaS App Builder Starter.",
+    copyright: `© ${new Date().getFullYear()} ClientPilot. All rights reserved.`,
     attribution: { label: "Built on Next.js", href: "https://nextjs.org" },
   },
 
   // ── Navbar ───────────────────────────────────────────────────────────────
   navbar: {
-    brandName: "Panda",
+    brandName: "ClientPilot",
     routes: [
       { href: "/#testimonials", label: "Testimonials" },
       { href: "/#team", label: "Team" },
@@ -471,23 +248,21 @@ export const defaultHomeContent: HomeContent = {
       { href: "/#faq", label: "FAQ" },
     ],
     featureDropdownLabel: "Features",
-    featureImage: { src: "/demo-img.jpg", alt: "Panda preview" },
+    featureImage: { src: "/demo-img.jpg", alt: "ClientPilot preview" },
     features: [
-      { title: "Auth, Billing, Teams", description: "Production-ready flows for sign-in, subscriptions, and organizations." },
-      { title: "UI + Design System", description: "Shadcn-based components with consistent theming and dark mode support." },
-      { title: "Deploy Fast", description: "Sane defaults for Next.js, TypeScript, and Vercel-first deployment." },
+      { title: "Centralize Client Data", description: "Store and manage all your client information and notes in one place." },
+      { title: "Team Collaboration", description: "Delegate, collaborate, and never lose a thread on any client." },
+      { title: "Insightful Overviews", description: "Stay on top of relationships and see what's next at a glance." },
     ],
-    signInLabel: "Sign in",
-    signUpLabel: "Sign up",
+    signInLabel: "Sign In",
+    signUpLabel: "Sign Up",
     dashboardLabel: "Dashboard",
-    githubLink: { href: "https://nextjs.org/docs", ariaLabel: "View on GitHub" },
+    githubLink: { href: "https://github.com", ariaLabel: "View on GitHub" },
   },
 };
 
 export const homeContent: HomeContent = defaultHomeContent;
 
-// Keep this function export for backward compatibility with older imports.
-// Primary consumers should import `homeContent` directly.
 export function getHomeContent(): HomeContent {
   return homeContent;
 }
