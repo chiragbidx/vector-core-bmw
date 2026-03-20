@@ -5,14 +5,17 @@ import { createClientAction } from "../actions";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { useFormState } from "react-dom";
+import { useActionState } from "react";
 import { useRouter } from "next/navigation";
 
 const initialState = { status: "", message: "" };
 
 export default function AddClientClient() {
   const formRef = useRef<HTMLFormElement | null>(null);
-  const [state, action] = useFormState(createClientAction, initialState);
+  const [state, action] = useActionState(async (data: FormData) => {
+    const result = await createClientAction(data);
+    return result || initialState;
+  }, initialState);
   const [pending, setPending] = useState(false);
   const router = useRouter();
 
@@ -26,7 +29,7 @@ export default function AddClientClient() {
         ref={formRef}
         action={async (data) => {
           setPending(true);
-          const result = await action(data); // processed by createClientAction
+          const result = await action(data);
           setPending(false);
           if (result?.status === "success") {
             formRef.current?.reset();
