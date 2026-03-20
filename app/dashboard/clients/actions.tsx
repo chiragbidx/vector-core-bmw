@@ -4,19 +4,8 @@ import { db } from "@/lib/db/client";
 import { clients } from "@/lib/db/schema";
 import { getAuthSession } from "@/lib/auth/session";
 import { eq, and } from "drizzle-orm";
-import { z } from "zod";
 import { redirect } from "next/navigation";
-
-// Validation schemas
-export const clientCreateSchema = z.object({
-  name: z.string().min(1, "Client name is required"),
-  email: z.string().optional(),
-  company: z.string().optional(),
-  phone: z.string().optional(),
-  notes: z.string().optional(),
-});
-
-export const clientUpdateSchema = clientCreateSchema.partial();
+import { clientCreateSchema, clientUpdateSchema } from "./validation";
 
 export async function createClientAction(formData: FormData) {
   const session = await getAuthSession();
