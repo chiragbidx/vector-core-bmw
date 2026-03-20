@@ -6,10 +6,6 @@ import { getAuthSession } from "@/lib/auth/session";
 import { db } from "@/lib/db/client";
 import { users } from "@/lib/db/schema";
 
-// Purpose: Server route entry for /dashboard/settings.
-// Keep auth checks and user queries here,
-// then pass prepared props into `client.tsx`.
-
 type SettingsPageProps = {
   searchParams?: Promise<{
     status?: string;
