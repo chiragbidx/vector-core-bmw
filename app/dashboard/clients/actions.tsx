@@ -3,7 +3,7 @@
 import { db } from "@/lib/db/client";
 import { clients, teamMembers } from "@/lib/db/schema";
 import { getAuthSession } from "@/lib/auth/session";
-import { eq, and } from "drizzle-orm";
+import { eq, and, desc } from "drizzle-orm";
 import { redirect } from "next/navigation";
 import { clientCreateSchema, clientUpdateSchema } from "./validation";
 
@@ -126,7 +126,7 @@ export async function getClientsForTeam(session: Awaited<ReturnType<typeof getAu
     .select()
     .from(clients)
     .where(eq(clients.teamId, team.teamId))
-    .orderBy(clients.createdAt.desc());
+    .orderBy(desc(clients.createdAt));
   return rows;
 }
 
