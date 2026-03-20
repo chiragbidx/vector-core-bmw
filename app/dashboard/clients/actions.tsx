@@ -1,11 +1,21 @@
 "use server";
 
 import { db } from "@/lib/db/client";
-import { clients } from "@/lib/db/schema";
+import { clients, teamMembers } from "@/lib/db/schema";
 import { getAuthSession } from "@/lib/auth/session";
 import { eq, and } from "drizzle-orm";
 import { redirect } from "next/navigation";
 import { clientCreateSchema, clientUpdateSchema } from "./validation";
+
+// Helper: Get first team membership for current user
+async function getTeamForUser(userId: string) {
+  const [teamMember] = await db
+    .select()
+    .from(teamMembers)
+    .where(eq(teamMembers.userId, userId))
+    .limit(1);
+  return teamMember;
+}
 
 export async function createClientAction(formData: FormData) {
   const session = await getAuthSession();
@@ -25,11 +35,8 @@ export async function createClientAction(formData: FormData) {
     return { status: "error", message: parsed.error.errors[0]?.message || "Invalid input" };
   }
 
-  // Need teamId (get from current user)
-  const team = await db.query.teamMembers.findFirst({
-    where: (tm, { eq }) => eq(tm.userId, session.userId),
-    with: { team: true },
-  });
+  // Team membership lookup (first/primary team)
+  const team = await getTeamForUser(session.userId);
   if (!team) {
     return { status: "error", message: "Team not found" };
   }
@@ -67,11 +74,7 @@ export async function updateClientAction(clientId: string, formData: FormData) {
     return { status: "error", message: parsed.error.errors[0]?.message || "Invalid input" };
   }
 
-  // Ownership (scoped by team)
-  const team = await db.query.teamMembers.findFirst({
-    where: (tm, { eq }) => eq(tm.userId, session.userId),
-    with: { team: true },
-  });
+  const team = await getTeamForUser(session.userId);
   if (!team) {
     return { status: "error", message: "Team not found" };
   }
@@ -97,11 +100,7 @@ export async function deleteClientAction(clientId: string) {
   const session = await getAuthSession();
   if (!session) redirect("/auth#signin");
 
-  // Ownership (scoped by team)
-  const team = await db.query.teamMembers.findFirst({
-    where: (tm, { eq }) => eq(tm.userId, session.userId),
-    with: { team: true },
-  });
+  const team = await getTeamForUser(session.userId);
   if (!team) {
     return { status: "error", message: "Team not found" };
   }
@@ -121,12 +120,8 @@ export async function deleteClientAction(clientId: string) {
 // Fetch clients for team
 export async function getClientsForTeam(session: Awaited<ReturnType<typeof getAuthSession>>) {
   if (!session) return [];
-  const team = await db.query.teamMembers.findFirst({
-    where: (tm, { eq }) => eq(tm.userId, session.userId),
-    with: { team: true },
-  });
+  const team = await getTeamForUser(session.userId);
   if (!team) return [];
-  // Return newest first
   const rows = await db
     .select()
     .from(clients)
@@ -138,10 +133,7 @@ export async function getClientsForTeam(session: Awaited<ReturnType<typeof getAu
 // Fetch one client
 export async function getClientForTeam(clientId: string, session: Awaited<ReturnType<typeof getAuthSession>>) {
   if (!session) return null;
-  const team = await db.query.teamMembers.findFirst({
-    where: (tm, { eq }) => eq(tm.userId, session.userId),
-    with: { team: true },
-  });
+  const team = await getTeamForUser(session.userId);
   if (!team) return null;
   const [client] = await db
     .select()
