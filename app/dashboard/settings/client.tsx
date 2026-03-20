@@ -23,9 +23,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Separator } from "@/components/ui/separator";
 
-// Purpose: Client UI for /dashboard/settings.
-// Use this file for interactive form and browser-only settings UI logic.
-
 type ClientProps = {
   user: {
     firstName: string;
