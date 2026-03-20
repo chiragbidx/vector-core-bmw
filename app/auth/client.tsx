@@ -93,15 +93,15 @@ export default function Client({ redirectTo, flashStatus, flashMessage }: Client
     if (mode === "signup") {
       return {
         id: "signup",
-        title: "Create account",
-        description: "Start your free account in less than a minute.",
+        title: "Create your ClientPilot account",
+        description: "Start managing your clients in minutes",
       };
     }
 
     return {
       id: "signin",
-      title: "Sign in",
-      description: "Use your email and password to continue.",
+      title: "Sign in to ClientPilot",
+      description: "Access your client dashboard",
     };
   }, [mode]);
 
@@ -113,21 +113,20 @@ export default function Client({ redirectTo, flashStatus, flashMessage }: Client
           <div className="relative z-10 flex h-full flex-col justify-between">
             <div className="space-y-4">
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary/80">
-                Panda Access
+                ClientPilot Access
               </p>
               <h1 className="max-w-sm text-4xl font-semibold leading-tight tracking-tight">
-                Launch faster with one workspace for your team.
+                Take control of your client management.
               </h1>
               <p className="max-w-md text-sm text-muted-foreground">
-                Secure auth, polished interface, and a clean onboarding flow built
-                for production teams.
+                Secure authentication, polished UI, and a seamless onboarding flow built for client-focused teams.
               </p>
             </div>
 
             <div className="relative overflow-hidden rounded-2xl border border-secondary/70 bg-background/80 p-3 shadow-lg">
               <Image
                 src="/demo-img.jpg"
-                alt="Panda product preview"
+                alt="ClientPilot product preview"
                 className="h-full w-full rounded-xl object-cover"
                 width={1200}
                 height={900}
@@ -149,7 +148,7 @@ export default function Client({ redirectTo, flashStatus, flashMessage }: Client
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  Sign in
+                  Sign In
                 </button>
                 <button
                   type="button"
@@ -160,7 +159,7 @@ export default function Client({ redirectTo, flashStatus, flashMessage }: Client
                       : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
-                  Sign up
+                  Sign Up
                 </button>
               </div>
 
@@ -215,7 +214,7 @@ export default function Client({ redirectTo, flashStatus, flashMessage }: Client
                   </div>
 
                   <Button type="submit" className="w-full" disabled={isPending}>
-                    {isPending ? "Signing in..." : "Sign in"}
+                    {isPending ? "Signing in..." : "Sign In"}
                   </Button>
                 </form>
               ) : (
@@ -225,11 +224,11 @@ export default function Client({ redirectTo, flashStatus, flashMessage }: Client
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-2">
                       <Label htmlFor="signup-first-name">First name</Label>
-                      <Input id="signup-first-name" name="firstName" placeholder="Chirag" required />
+                      <Input id="signup-first-name" name="firstName" placeholder="First" required />
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="signup-last-name">Last name</Label>
-                      <Input id="signup-last-name" name="lastName" placeholder="Dodiya" required />
+                      <Input id="signup-last-name" name="lastName" placeholder="Last" required />
                     </div>
                   </div>
 
@@ -268,7 +267,7 @@ export default function Client({ redirectTo, flashStatus, flashMessage }: Client
                   </div>
 
                   <Button type="submit" className="w-full" disabled={isPending}>
-                    {isPending ? "Creating account..." : "Create account"}
+                    {isPending ? "Creating account..." : "Sign Up"}
                   </Button>
                 </form>
               )}
@@ -285,6 +284,31 @@ export default function Client({ redirectTo, flashStatus, flashMessage }: Client
                 </p>
               ) : null}
             </CardContent>
+            <div className="mt-4 flex justify-between text-sm text-muted-foreground">
+              {mode === "signin" ? (
+                <span>
+                  Don&apos;t have an account?{" "}
+                  <button
+                    type="button"
+                    onClick={() => setModeWithHash("signup")}
+                    className="font-medium text-primary hover:underline"
+                  >
+                    Sign up.
+                  </button>
+                </span>
+              ) : (
+                <span>
+                  Already have an account?{" "}
+                  <button
+                    type="button"
+                    onClick={() => setModeWithHash("signin")}
+                    className="font-medium text-primary hover:underline"
+                  >
+                    Sign in.
+                  </button>
+                </span>
+              )}
+            </div>
           </Card>
         </div>
       </section>
